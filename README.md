@@ -1,4 +1,4 @@
-# PellStats
+# PellStats vor Spigot 1.21.4
 ## A simple plugin to monitor some server health stats
 ---
 
@@ -19,6 +19,8 @@ This is my first plugin after learning the basics. It can be buggy!
 
 /pellram - Shows the used and max usable RAM
 
+/pellstorage - Shows the storage used by the server and max storage of the host drive
+
 /pellinfo - Shows the plugin version
 
 /pellgit - Gives you a link to this github page
@@ -35,6 +37,10 @@ This is my first plugin after learning the basics. It can be buggy!
 
 /pellram - pellstats.ram
 
-/pellinfo - None
+/pellstorage - pellstats.storage
 
-/pellgit - None
+/pellinfo - pellstats.brandhide
+
+/pellgit - pellstats.brandhide
+
+(Give a group pellstats.brandhide to block thsese commands)
