@@ -1,8 +1,8 @@
-# PellStats for Spigot 1.21.4
-## A simple plugin to monitor some server health stats
+# PellStats for Spigot 1.21.5
+## A plugin to monitor some server health stats
 ---
 
-## Simply type a command to instantly see simple stats about your server!
+## Just type a command to instantly view basic server stats!
 
 ### This is my first plugin after learning the basics. It can be buggy!
 
@@ -43,4 +43,4 @@
 
 /pellgit - pellstats.brandhide
 
-(Give a group pellstats.brandhide to block thsese commands)
+Give a group the pellstats.brandhide permission to block these commands.
