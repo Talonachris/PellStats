@@ -10,6 +10,14 @@ commands:
     description: Shows the current RAM usage
     aliases: psr
     permission: pellstats.ram
+  pellcpu:
+   description: Shows the CPU usage
+   aliases: psc
+   permission: pellstats.cpu
+  pelltps:
+     description: Shows the Server TPS
+     aliases: pstps
+     permissions: pellstats.tps
   pellinfo:
     description: Shows the Plugin Version
     aliases: psi

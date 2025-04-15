@@ -10,7 +10,7 @@ public class Info implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
-        commandSender.sendMessage(Strings.PREFIX + ChatColor.BLUE + "PellStats Version: 0.2 - Plugin made by " + ChatColor.BOLD + "Talonachris");
+        commandSender.sendMessage(Strings.PREFIX + ChatColor.BLUE + "PellStats Version: 0.3 - Plugin made by " + ChatColor.BOLD + "Talonachris");
         return true;
     }
 }
