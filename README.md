@@ -1,4 +1,4 @@
-# PellStats vor Spigot 1.21.4
+# PellStats for Spigot 1.21.4
 ## A simple plugin to monitor some server health stats
 ---
 
