@@ -47,21 +47,26 @@ public class GetCPU implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (sender.hasPermission("pellstats.cpu")) {
-            if (command.getName().equalsIgnoreCase("pellcpu")) {
-                // CPU-Daten holen und berechnen
-                double current = processor.getSystemCpuLoadBetweenTicks(prevTicks) * 100;
-                prevTicks = processor.getSystemCpuLoadTicks();
+        if (command.getName().equalsIgnoreCase("pellcpu")) {
 
-                double avg5 = average(last5Min);
-                double avg10 = average(last10Min);
+            double current = processor.getSystemCpuLoadBetweenTicks(prevTicks) * 100;
+            prevTicks = processor.getSystemCpuLoadTicks();
 
-                // Ausgabe der Ergebnisse
-                sender.sendMessage(Strings.PREFIX + ChatColor.GOLD + "--------------[CPU]--------------");
-                sender.sendMessage(ChatColor.BLUE + "CPU usage now: " + ChatColor.YELLOW + "" + ChatColor.BOLD + String.format("%.2f%%", current));
-                sender.sendMessage(ChatColor.BLUE + "CPU usage last 5 minutes: " + ChatColor.YELLOW + "" + ChatColor.BOLD + String.format("%.2f%%", avg5));
-                sender.sendMessage(ChatColor.BLUE + "CPU usage last 10 minutes: " + ChatColor.YELLOW + "" + ChatColor.BOLD + String.format("%.2f%%", avg10));
-                sender.sendMessage(Strings.PREFIX + ChatColor.GOLD + "---------------------------------");
+            double avg5 = average(last5Min);
+            double avg10 = average(last10Min);
+
+            // Ausgabe der Ergebnisse
+            String output = Strings.PREFIX + ChatColor.GOLD + "--------------[CPU]--------------\n" +
+                    ChatColor.BLUE + "CPU usage now: " + ChatColor.YELLOW + "" + ChatColor.BOLD + String.format("%.2f%%", current) + "\n" +
+                    ChatColor.BLUE + "CPU usage last 5 minutes: " + ChatColor.YELLOW + "" + ChatColor.BOLD + String.format("%.2f%%", avg5) + "\n" +
+                    ChatColor.BLUE + "CPU usage last 10 minutes: " + ChatColor.YELLOW + "" + ChatColor.BOLD + String.format("%.2f%%", avg10) + "\n" +
+                    Strings.PREFIX + ChatColor.GOLD + "---------------------------------";
+
+            if (sender.hasPermission("pellstats.cpu")) {
+                sender.sendMessage(output);
+                return true;
+            } else {
+                sender.sendMessage(Strings.PREFIX + ChatColor.RED + "Du hast keine Berechtigung, diesen Befehl auszuführen!");
                 return true;
             }
         }

@@ -9,22 +9,52 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import com.talona.pellStats.Strings;
+import org.bukkit.entity.Player;
 
 public class GitHub implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        TextComponent prefixComponent = new TextComponent(Strings.PREFIX + ChatColor.BLUE + "GitHub: ");
-        TextComponent linkComponent = new TextComponent(ChatColor.YELLOW + "" + ChatColor.BOLD + "Klick me!");
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (command.getName().equalsIgnoreCase("pellgit")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
 
-        HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Github.com/Talonachris/PellStats"));
-        linkComponent.setHoverEvent(hoverEvent);
+                if (!player.hasPermission("pellstats.brandhide")) {
+                    TextComponent prefixComponent = new TextComponent(Strings.PREFIX + ChatColor.BLUE + "GitHub: ");
+                    TextComponent linkComponent = new TextComponent(ChatColor.YELLOW + "" + ChatColor.BOLD + "Klick me!");
 
-        ClickEvent clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Talonachris/PellStats");
-        linkComponent.setClickEvent(clickEvent);
+                    HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Github.com/Talonachris/PellStats"));
+                    linkComponent.setHoverEvent(hoverEvent);
 
-        prefixComponent.addExtra(linkComponent);
+                    ClickEvent clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Talonachris/PellStats");
+                    linkComponent.setClickEvent(clickEvent);
 
-        commandSender.spigot().sendMessage(prefixComponent);
+                    prefixComponent.addExtra(linkComponent);
+
+                    player.spigot().sendMessage(prefixComponent);
+                    return false;
+                }
+
+                if (player.isOp()) {
+                    TextComponent prefixComponent = new TextComponent(Strings.PREFIX + ChatColor.BLUE + "GitHub: ");
+                    TextComponent linkComponent = new TextComponent(ChatColor.YELLOW + "" + ChatColor.BOLD + "Klick me!");
+
+                    HoverEvent hoverEvent = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("Github.com/Talonachris/PellStats"));
+                    linkComponent.setHoverEvent(hoverEvent);
+
+                    ClickEvent clickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Talonachris/PellStats");
+                    linkComponent.setClickEvent(clickEvent);
+
+                    prefixComponent.addExtra(linkComponent);
+
+                    player.spigot().sendMessage(prefixComponent);
+                    return false;
+                }
+                if (player.hasPermission("pellstats.githide")) {
+                    player.sendMessage(ChatColor.RED + "You are not permitted to use this command!");
+                    return false;
+                }
+            }
+        }
         return true;
     }
 }

@@ -27,17 +27,18 @@ public class GetRAM implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-
-        if (commandSender.hasPermission("pellstats.ram")) {
-            commandSender.sendMessage(Strings.PREFIX + org.bukkit.ChatColor.GOLD + "--------------[RAM]--------------");
-            commandSender.sendMessage(getRamAuslastungsString());
-            commandSender.sendMessage(Strings.PREFIX + org.bukkit.ChatColor.GOLD + "---------------------------------");
-            return true;
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (command.getName().equalsIgnoreCase("pellram")) {
+            if (sender.hasPermission("pellstats.ram")) {
+                sender.sendMessage(Strings.PREFIX + org.bukkit.ChatColor.GOLD + "--------------[RAM]--------------");
+                sender.sendMessage(getRamAuslastungsString());
+                sender.sendMessage(Strings.PREFIX + org.bukkit.ChatColor.GOLD + "---------------------------------");
+                return true;
+            } else {
+                sender.sendMessage(ChatColor.RED + "You are not permitted to use this command!");
+                return true;
+            }
         }
-
-        commandSender.sendMessage(ChatColor.RED + "You are not permitted to use this command!");
-        return true;
-
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 name: PellStats
-version: '0.1'
+version: '1.0'
 main: com.talona.pellStats.PellStats
 api-version: '1.21'
 author: Talonachris
@@ -18,6 +18,10 @@ commands:
      description: Shows the Server TPS
      aliases: pstps
      permissions: pellstats.tps
+  pellstorage:
+    description: Shows storage used by the server
+    aliases: pss
+    permissions: pellstats.storage
   pellinfo:
     description: Shows the Plugin Version
     aliases: psi

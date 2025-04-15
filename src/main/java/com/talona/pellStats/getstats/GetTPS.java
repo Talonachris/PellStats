@@ -34,17 +34,17 @@ public class GetTPS implements CommandExecutor {
                     tps = 20.0;
                 }
                 recentTps.add(tps);
-                if (recentTps.size() > 200) { // Speichert TPS-Werte der letzten 10 Sekunden
+                if (recentTps.size() > 200) {
                     recentTps.remove(0);
                 }
                 lastTime = currentTime;
             }
-        }.runTaskTimerAsynchronously(plugin, 0L, 1L); // Nutze die Plugin-Instanz für den Scheduler
+        }.runTaskTimerAsynchronously(plugin, 0L, 1L);
     }
 
     private double getAverageTps(int seconds) {
         if (recentTps.isEmpty()) {
-            return 20.0; // Standardwert, falls noch keine Daten vorhanden sind
+            return 20.0;
         }
 
         int ticks = seconds * 20;
@@ -59,23 +59,21 @@ public class GetTPS implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("pelltps")) {
+            double tps1 = getAverageTps(60);
+            double tps5 = getAverageTps(60 * 5);
+            double tps10 = getAverageTps(60 * 10);
+            DecimalFormat df = new DecimalFormat("0.00");
+            String output = ChatColor.GREEN + "--- Server TPS ---\n" +
+                    ChatColor.YELLOW + "Letzte Minute: " + ChatColor.WHITE + df.format(tps1) + "\n" +
+                    ChatColor.YELLOW + "Letzte 5 Minuten: " + ChatColor.WHITE + df.format(tps5) + "\n" +
+                    ChatColor.YELLOW + "Letzte 10 Minuten: " + ChatColor.WHITE + df.format(tps10);
+
             if (!(sender instanceof Player)) {
-                double tps1 = getAverageTps(60);
-                double tps5 = getAverageTps(60 * 5);
-                double tps10 = getAverageTps(60 * 10);
-                DecimalFormat df = new DecimalFormat("0.00");
-                sender.sendMessage(ChatColor.GREEN + "--- Server TPS ---");
-                sender.sendMessage(ChatColor.YELLOW + "Letzte Minute: " + ChatColor.WHITE + df.format(tps1));
-                sender.sendMessage(ChatColor.YELLOW + "Letzte 5 Minuten: " + ChatColor.WHITE + df.format(tps5));
-                sender.sendMessage(ChatColor.YELLOW + "Letzte 10 Minuten: " + ChatColor.WHITE + df.format(tps10));
+                sender.sendMessage(output);
                 return true;
             } else {
                 Player player = (Player) sender;
                 if (player.hasPermission("pellstats.tps")) { // Überprüfe die Permission
-                    double tps1 = getAverageTps(60);
-                    double tps5 = getAverageTps(60 * 5);
-                    double tps10 = getAverageTps(60 * 10);
-                    DecimalFormat df = new DecimalFormat("0.00");
                     player.sendMessage(Strings.PREFIX + ChatColor.GOLD + "--------------[TPS]--------------");
                     player.sendMessage(ChatColor.BLUE + "Last minute: " + ChatColor.YELLOW + "" + ChatColor.BOLD + df.format(tps1));
                     player.sendMessage(ChatColor.BLUE + "Last 5 minutes: " + ChatColor.YELLOW + "" + ChatColor.BOLD + df.format(tps5));
