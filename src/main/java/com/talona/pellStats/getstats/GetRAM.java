@@ -27,7 +27,7 @@ public class GetRAM implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        commandSender.sendMessage( Strings.PREFIX + "RAM Usage: " + getRamAuslastungsString());
+        commandSender.sendMessage( Strings.PREFIX + getRamAuslastungsString());
         return true;
     }
 }
