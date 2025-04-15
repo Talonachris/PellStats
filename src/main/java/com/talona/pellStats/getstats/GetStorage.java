@@ -22,7 +22,7 @@ public class GetStorage implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("pellstorage")) {
             if (sender.hasPermission("pellstats.storage")) {
                 // Server Speicher
-                File serverFolder = plugin.getDataFolder().getParentFile();
+                File serverFolder = new File(".");
                 long serverFolderSize = getFolderSize(serverFolder);
                 double serverFolderSizeGB = (double) serverFolderSize / (1024 * 1024 * 1024);
 

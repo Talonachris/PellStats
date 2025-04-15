@@ -1,5 +1,5 @@
 name: PellStats
-version: '1.0'
+version: '1.0.1'
 main: com.talona.pellStats.PellStats
 api-version: '1.21'
 author: Talonachris
