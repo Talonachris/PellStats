@@ -5,6 +5,7 @@ import java.lang.management.MemoryMXBean;
 import java.text.DecimalFormat;
 
 import com.talona.pellStats.Strings;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,7 +23,7 @@ public class GetRAM implements CommandExecutor {
         double maxMB = (double) maxMemory / (1024 * 1024);
         double percentageUsed = (usedMB / maxMB) * 100;
 
-        return "RAM usage: " + DF.format(usedMB) + " MB / " + DF.format(maxMB) + " MB (" + DF.format(percentageUsed) + "%)";
+        return ChatColor.BLUE + "RAM usage: " + ChatColor.YELLOW + DF.format(usedMB) + " MB / " + DF.format(maxMB) + " MB (" + DF.format(percentageUsed) + "%)";
     }
 
     @Override

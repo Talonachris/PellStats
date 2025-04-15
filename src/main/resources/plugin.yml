@@ -8,5 +8,11 @@ website: lightning-dev.de
 commands:
   pellram:
     description: Shows the current RAM usage
-    aliases:
+    aliases: psr
     permission: pellstats.ram
+  pellinfo:
+    description: Shows the Plugin Version
+    aliases: psi
+  pellgit:
+    description: Shows the GitHub Link of the Plugin
+    aliases: psgit
