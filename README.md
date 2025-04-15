@@ -22,3 +22,19 @@ This is my first plugin after learning the basics. It can be buggy!
 /pellinfo - Shows the plugin version
 
 /pellgit - Gives you a link to this github page
+
+
+---
+
+
+## Permissions
+
+/pellcpu - pellstats.cpu
+
+/pelltps - pellstats.tps
+
+/pellram - pellstats.ram
+
+/pellinfo - None
+
+/pellgit - None
