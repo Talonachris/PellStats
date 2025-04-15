@@ -2,9 +2,9 @@
 ## A simple plugin to monitor some server health stats
 ---
 
-Simply type a command see instantly simple stats about your server!
+## Simply type a command to instantly see simple stats about your server!
 
-This is my first plugin after learning the basics. It can be buggy!
+### This is my first plugin after learning the basics. It can be buggy!
 
 
 ---
