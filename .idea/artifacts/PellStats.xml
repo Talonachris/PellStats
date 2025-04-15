@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PellStats">
+    <output-path>$PROJECT_DIR$/server/plugins</output-path>
+    <root id="archive" name="PellStats.jar">
+      <element id="module-output" name="PellStats" />
+    </root>
+  </artifact>
+</component>

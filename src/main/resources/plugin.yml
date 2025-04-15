@@ -1,0 +1,12 @@
+name: PellStats
+version: '0.1'
+main: com.talona.pellStats.PellStats
+api-version: '1.21'
+author: Talonachris
+website: lightning-dev.de
+
+commands:
+  pellram:
+    description: Shows the current RAM usage
+    aliases:
+    permission: pellstats.ram
