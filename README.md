@@ -1,46 +1,39 @@
-# PellStats for Spigot 1.21.5
-## A plugin to monitor some server health stats
----
+![PellData Banner](./banner.png)
 
-## Just type a command to instantly view basic server stats!
+# ✨ PellStats – Dein Spigot-Server-Monitor ✨
 
-### This is my first plugin after learning the basics. It can be buggy!
+Behalte wichtige Server-Statistiken im Blick – direkt ingame!
 
-
----
-
-
-## Commands
-
-
-/pellcpu - Shows the CPU usage by now, 5 minutes and 10 minutes
-
-/pelltps - Shows the TPS from the server by 1 minute, 5 minutes and 10 minutes
-
-/pellram - Shows the used and max usable RAM
-
-/pellstorage - Shows the storage used by the server and max storage of the host drive
-
-/pellinfo - Shows the plugin version
-
-/pellgit - Gives you a link to this github page
-
+![Spigot](https://img.shields.io/badge/spigot-1.21.5-orange)
+![Java](https://img.shields.io/badge/java-17-brightgreen)
 
 ---
 
+## 🚀 Features
 
-## Permissions
+- **RAM-Nutzung** in Echtzeit anzeigen
+- **CPU-Auslastung** tracken
+- Aktuelle **Server-TPS** überwachen
+- **Speichernutzung** des Spigot Servers abfragen
 
-/pellcpu - pellstats.cpu
+---
 
-/pelltps - pellstats.tps
+## 🎮 Commands & Permissions
 
-/pellram - pellstats.ram
+| 📝 Command     | 🎯 Alias | 🔒 Permission       | 📖 Beschreibung                   |
+| -------------- | -------- | ------------------- | --------------------------------- |
+| `/pellram`     | `psr`    | `pellstats.ram`     | Zeigt die aktuelle RAM-Nutzung    |
+| `/pellcpu`     | `psc`    | `pellstats.cpu`     | Zeigt die CPU-Auslastung          |
+| `/pelltps`     | `pstps`  | `pellstats.tps`     | Zeigt die Server-TPS              |
+| `/pellstorage` | `pss`    | `pellstats.storage` | Zeigt den genutzten Speicher      |
+| `/pellinfo`    | `psi`    | —                   | Zeigt die Plugin-Version          |
+| `/pellgit`     | `psgit`  | —                   | Zeigt den GitHub-Link des Plugins |
 
-/pellstorage - pellstats.storage
+---
 
-/pellinfo - pellstats.brandhide
+## ⚠️ Wichtiger Hinweis
 
-/pellgit - pellstats.brandhide
+Ich habe **PellStats** selbst als mein erstes Coding-Projekt entwickelt.\
+Es kann daher noch zu Bugs oder unerwartetem Verhalten kommen – Feedback und Bug-Reports sind sehr willkommen!
 
-Give a group the pellstats.brandhide permission to block these commands.
+Happy monitoring! 🎉
